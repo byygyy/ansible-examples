@@ -1,0 +1,34 @@
+---
+#Extract archive of zip
+# - name: Download JBoss from jboss.org
+#   get_url:
+#     url: http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
+#     dest: /tmp/jboss-as-7.1.1.Final.zip
+#
+# - name: Extract archive of zip
+#   unarchive:
+#     dest: /appvol/share
+#     src: /tmp/jboss-as-7.1.1.Final.zip
+#     copy: no
+
+#Extract archive of tar.gz
+- name: Extract archive of tar.gz
+  unarchive:
+    dest: /appvol
+    src: /tmp/as.tar.gz
+    copy: no
+
+- name: Extract archive of tar.gz
+  unarchive:
+    dest: /appvol/as
+    src: /tmp/as/async2.tar.gz
+    copy: no
+
+- name: Extract archive of tar.gz
+  unarchive:
+    dest: /appvol/as
+    src: /tmp/as/async.tar.gz
+    copy: no
+
+- name: install git by root
+  shell: yum install git -y

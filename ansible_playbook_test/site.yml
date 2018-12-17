@@ -1,0 +1,9 @@
+---
+# This playbook deploys a simple playbook
+
+- hosts: gcp
+  become_user: root
+  become: yes
+  become_method: su
+  roles:
+    - testplaybook1
