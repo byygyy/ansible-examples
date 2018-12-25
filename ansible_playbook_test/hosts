@@ -11,5 +11,9 @@ lb1
 [monitoring]
 nagios
 
-[test]
+[aliyun]
 lihuanhuan.net
+[aws]
+robin.org.cn
+[gcp]
+gcp.lihuanhuan.net

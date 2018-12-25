@@ -30,8 +30,8 @@
 #     src: /tmp/as/async.tar.gz
 #     copy: no
 
-- name: install git by root
-  shell: yum install git -y
+- name: install unzip by root
+  shell: yum install unzip -y
 
 - name: show the instance name
   shell: "echo {{ instance_name }}"
