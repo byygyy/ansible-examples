@@ -1,0 +1,16 @@
+---
+#install python web.py
+- name: install pip lib about web.py
+  pip: 
+    name: web.py
+    state: latest
+
+#copy folder /appvol to /home
+- name: copy folder from master server to target server
+  copy:
+    src: /appvol
+    dest: /home
+    owner: robin
+    group: robin
+    mode: 0644
+    
