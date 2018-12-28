@@ -1,16 +1,44 @@
 ---
-#install python web.py
+
+- name: run shell script at target server
+  shell: ifconfig
+  register: shell_result
+
+- name: Show debug info 
+  debug: var=shell_result.stdout verbosity=0
+
+- name: run shell script file at targer server
+  shell: "cd /appvol/ProxyServer/ ;  sh ./proxyserver.sh"
+  register: start_proxy_result
+
+- name: show start_proxy_result
+  debug: var=start_proxy_result.stdout verbosity=0
+
+#file will storage at /appvol/fetched/target_host_name/appvol/testfetch.txt
+- name: fetch file from target server
+  fetch:
+    src: /appvol/testfetch.txt
+    dest: /appvol/fetched/
+
+
 - name: install pip lib about web.py
   pip: 
     name: web.py
     state: latest
 
-#copy folder /appvol to /home
 - name: copy folder from master server to target server
   copy:
     src: /appvol
-    dest: /home
+    dest: /tmp/
     owner: robin
     group: robin
     mode: 0644
-    
+
+- name: copy folder from master server to target server
+  copy:
+    src: /appvol/
+    dest: /tmp/
+    owner: robin
+    group: robin
+    mode: 0644
+
